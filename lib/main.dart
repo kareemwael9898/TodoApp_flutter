@@ -2,17 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 void main() {
-  runApp(const TodoPage());
+  runApp(const HomePage());
 }
 
-class TodoPage extends StatefulWidget {
-  const TodoPage({super.key});
+class HomePage extends StatefulWidget {
+  const HomePage({super.key});
 
   @override
-  State<TodoPage> createState() => _TodoPageState();
+  State<HomePage> createState() => _HomePageState();
 }
 
-class _TodoPageState extends State<TodoPage> {
+class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -37,15 +37,25 @@ class _TodoPageState extends State<TodoPage> {
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                SvgPicture.asset("assets/images/Playlist.svg",width: 30,),
-                Text("All",style: TextStyle(fontSize: 14,color: Color(0XFF9395D3)),)
+                SvgPicture.asset(
+                  "assets/images/Playlist.svg",
+                  width: 30,
+                ),
+                Text(
+                  "All",
+                  style: TextStyle(fontSize: 14, color: Color(0XFF9395D3)),
+                )
               ],
             ),
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                SvgPicture.asset("assets/images/Tick.svg",width: 30,),
-                Text("Completed",style: TextStyle(fontSize: 14,color: Color(0XFF9395D3)))
+                SvgPicture.asset(
+                  "assets/images/Tick.svg",
+                  width: 30,
+                ),
+                Text("Completed",
+                    style: TextStyle(fontSize: 14, color: Color(0XFF9395D3)))
               ],
             ),
           ],
@@ -57,39 +67,57 @@ class _TodoPageState extends State<TodoPage> {
                 for (var i = 0; i < 8; i++)
                   todoItem(title: "Kareem", subTitle: "Wael")
               ],
-            )
-          ],
-        ),
-      ),
-    );
-  }
-
-  Widget todoItem({required String title, required String subTitle}) {
-    return Card(
-      margin: const EdgeInsets.symmetric(horizontal: 6, vertical: 10),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-        child: Row(
-          children: [
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(title, style: const TextStyle(color: Color(0XFF9395D3))),
-                  Text(subTitle)
-                ],
+            ),
+            Align(
+              alignment: AlignmentDirectional.bottomEnd,
+              child: Padding(
+                padding: EdgeInsets.all(16),
+                child: IconButton(
+                  onPressed: () {}, // TODO OnPressed
+                  icon: Icon(
+                    Icons.add,
+                    color: Colors.white,
+                  ),
+                  style: ButtonStyle(
+                    backgroundColor:
+                        MaterialStatePropertyAll(Color(0XFF9395D3)),
+                    fixedSize: MaterialStatePropertyAll(Size(70, 70)),
+                  ),
+                ),
               ),
             ),
-            Row(
-              children: [
-                SvgPicture.asset("assets/images/Pencil.svg", height: 25),
-                SvgPicture.asset("assets/images/Trash.svg", height: 25),
-                SvgPicture.asset("assets/images/CheckCircle.svg", height: 25),
-              ],
-            )
           ],
         ),
       ),
     );
   }
+}
+
+Widget todoItem({required String title, required String subTitle}) {
+  return Card(
+    margin: const EdgeInsets.symmetric(horizontal: 6, vertical: 10),
+    child: Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+      child: Row(
+        children: [
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(title, style: const TextStyle(color: Color(0XFF9395D3))),
+                Text(subTitle)
+              ],
+            ),
+          ),
+          Row(
+            children: [
+              SvgPicture.asset("assets/images/Pencil.svg", height: 25),
+              SvgPicture.asset("assets/images/Trash.svg", height: 25),
+              SvgPicture.asset("assets/images/CheckCircle.svg", height: 25),
+            ],
+          )
+        ],
+      ),
+    ),
+  );
 }
