@@ -13,7 +13,7 @@ class PagesNavigator extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CompletedTasksPage();
+    return const HomePage();
   }
 }
 
@@ -53,7 +53,7 @@ class _HomePageState extends State<HomePage> {
                   "assets/images/Playlist.svg",
                   width: 30,
                 ),
-                Text(
+                const Text(
                   "All",
                   style: TextStyle(fontSize: 14, color: Color(purple)),
                 )
@@ -66,7 +66,7 @@ class _HomePageState extends State<HomePage> {
                   "assets/images/Tick.svg",
                   width: 30,
                 ),
-                Text("Completed",
+                const Text("Completed",
                     style: TextStyle(fontSize: 14, color: Color(purple)))
               ],
             ),
@@ -83,14 +83,14 @@ class _HomePageState extends State<HomePage> {
             Align(
               alignment: AlignmentDirectional.bottomEnd,
               child: Padding(
-                padding: EdgeInsets.all(16),
+                padding: const EdgeInsets.all(16),
                 child: IconButton(
                   onPressed: () {}, // TODO OnPressed
-                  icon: Icon(
+                  icon: const Icon(
                     Icons.add,
                     color: Colors.white,
                   ),
-                  style: ButtonStyle(
+                  style: const ButtonStyle(
                     backgroundColor: MaterialStatePropertyAll(Color(purple)),
                     fixedSize: MaterialStatePropertyAll(Size(70, 70)),
                   ),
@@ -144,39 +144,39 @@ class AddTaskPage extends StatelessWidget {
           leading: IconButton(
               onPressed: () {} // TODO OnPressed2
               ,
-              icon: Icon(
+              icon: const Icon(
                 Icons.arrow_back,
                 color: Colors.white,
               )),
-          title: Text(
+          title: const Text(
             "Add Task",
             style: TextStyle(color: Colors.white),
           ),
-          backgroundColor: Color(purple),
+          backgroundColor: const Color(purple),
         ),
-        backgroundColor: Color(lightPurple),
+        backgroundColor: const Color(lightPurple),
         body: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 18),
+          padding: const EdgeInsets.symmetric(horizontal: 18),
           child: Column(
             children: [
               TextFormField(
-                decoration: InputDecoration(hintText: "Title"),
+                decoration: const InputDecoration(hintText: "Title"),
               ),
               TextFormField(
-                decoration: InputDecoration(hintText: "Detail"),
+                decoration: const InputDecoration(hintText: "Detail"),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 50,
               ),
               ElevatedButton(
                 onPressed: () {},
-                child: Text(
-                  "ADD",
-                  style: TextStyle(color: Colors.white),
-                ),
-                style: ButtonStyle(
+                style: const ButtonStyle(
                   backgroundColor: MaterialStatePropertyAll(Color(purple)),
                   fixedSize: MaterialStatePropertyAll(Size(386, 65)),
+                ),
+                child: const Text(
+                  "ADD",
+                  style: TextStyle(color: Colors.white),
                 ),
               )
             ],
@@ -198,28 +198,28 @@ class EditTaskPage extends StatelessWidget {
           leading: IconButton(
               onPressed: () {} // TODO OnPressed2
               ,
-              icon: Icon(
+              icon: const Icon(
                 Icons.arrow_back,
                 color: Colors.white,
               )),
-          title: Text(
+          title: const Text(
             "Edit Task",
             style: TextStyle(color: Colors.white),
           ),
-          backgroundColor: Color(purple),
+          backgroundColor: const Color(purple),
         ),
-        backgroundColor: Color(lightPurple),
+        backgroundColor: const Color(lightPurple),
         body: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 18),
+          padding: const EdgeInsets.symmetric(horizontal: 18),
           child: Column(
             children: [
               TextFormField(
-                decoration: InputDecoration(hintText: "Title"),
+                decoration: const InputDecoration(hintText: "Title"),
               ),
               TextFormField(
-                decoration: InputDecoration(hintText: "Detail"),
+                decoration: const InputDecoration(hintText: "Detail"),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 50,
               ),
               Row(
@@ -229,20 +229,20 @@ class EditTaskPage extends StatelessWidget {
                       aspectRatio: 2.5,
                       child: ElevatedButton(
                         onPressed: () {},
-                        child: Text(
+                        style: const ButtonStyle(
+                          backgroundColor:
+                              MaterialStatePropertyAll(Color(purple)),
+                        ),
+                        child: const Text(
                           "Update",
                           style: TextStyle(
                             color: Colors.white,
                           ),
                         ),
-                        style: ButtonStyle(
-                          backgroundColor:
-                              MaterialStatePropertyAll(Color(purple)),
-                        ),
                       ),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 20,
                   ),
                   Expanded(
@@ -250,13 +250,13 @@ class EditTaskPage extends StatelessWidget {
                       aspectRatio: 2.5,
                       child: ElevatedButton(
                         onPressed: () {},
-                        child: Text(
-                          "Cancel",
-                          style: TextStyle(color: Colors.white),
-                        ),
-                        style: ButtonStyle(
+                        style: const ButtonStyle(
                           backgroundColor:
                               MaterialStatePropertyAll(Color(purple)),
+                        ),
+                        child: const Text(
+                          "Cancel",
+                          style: TextStyle(color: Colors.white),
                         ),
                       ),
                     ),
@@ -288,15 +288,15 @@ class _CompletedTasksPageState extends State<CompletedTasksPage> {
           leading: IconButton(
               onPressed: () {} // TODO OnPressed2
               ,
-              icon: Icon(
+              icon: const Icon(
                 Icons.arrow_back,
                 color: Colors.white,
               )),
-          title: Text(
+          title: const Text(
             "Completed Tasks",
             style: TextStyle(color: Colors.white),
           ),
-          backgroundColor: Color(purple),
+          backgroundColor: const Color(purple),
         ),
         backgroundColor: const Color(lightPurple),
         body: ListView(
