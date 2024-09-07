@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -11,9 +10,10 @@ void main() {
 
 class PagesNavigator extends StatelessWidget {
   const PagesNavigator({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return EditTaskPage();
+    return CompletedTasksPage();
   }
 }
 
@@ -165,7 +165,9 @@ class AddTaskPage extends StatelessWidget {
               TextFormField(
                 decoration: InputDecoration(hintText: "Detail"),
               ),
-              SizedBox(height: 50,),
+              SizedBox(
+                height: 50,
+              ),
               ElevatedButton(
                 onPressed: () {},
                 child: Text(
@@ -217,7 +219,9 @@ class EditTaskPage extends StatelessWidget {
               TextFormField(
                 decoration: InputDecoration(hintText: "Detail"),
               ),
-              SizedBox(height: 50,),
+              SizedBox(
+                height: 50,
+              ),
               Row(
                 children: [
                   Expanded(
@@ -227,15 +231,20 @@ class EditTaskPage extends StatelessWidget {
                         onPressed: () {},
                         child: Text(
                           "Update",
-                          style: TextStyle(color: Colors.white,),
+                          style: TextStyle(
+                            color: Colors.white,
+                          ),
                         ),
                         style: ButtonStyle(
-                          backgroundColor: MaterialStatePropertyAll(Color(purple)),
+                          backgroundColor:
+                              MaterialStatePropertyAll(Color(purple)),
                         ),
                       ),
                     ),
                   ),
-                  SizedBox(width: 20,),
+                  SizedBox(
+                    width: 20,
+                  ),
                   Expanded(
                     child: AspectRatio(
                       aspectRatio: 2.5,
@@ -246,7 +255,8 @@ class EditTaskPage extends StatelessWidget {
                           style: TextStyle(color: Colors.white),
                         ),
                         style: ButtonStyle(
-                          backgroundColor: MaterialStatePropertyAll(Color(purple)),
+                          backgroundColor:
+                              MaterialStatePropertyAll(Color(purple)),
                         ),
                       ),
                     ),
@@ -259,4 +269,65 @@ class EditTaskPage extends StatelessWidget {
       ),
     );
   }
+}
+
+class CompletedTasksPage extends StatefulWidget {
+  const CompletedTasksPage({super.key});
+
+  @override
+  State<CompletedTasksPage> createState() => _CompletedTasksPageState();
+}
+
+class _CompletedTasksPageState extends State<CompletedTasksPage> {
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          leading: IconButton(
+              onPressed: () {} // TODO OnPressed2
+              ,
+              icon: Icon(
+                Icons.arrow_back,
+                color: Colors.white,
+              )),
+          title: Text(
+            "Completed Tasks",
+            style: TextStyle(color: Colors.white),
+          ),
+          backgroundColor: Color(purple),
+        ),
+        backgroundColor: const Color(lightPurple),
+        body: ListView(
+          children: [
+            for (var i = 0; i < 8; i++)
+              completedTodoItem(title: "Kareem", subTitle: "Wael")
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+Widget completedTodoItem({required String title, required String subTitle}) {
+  return Card(
+    margin: const EdgeInsets.symmetric(horizontal: 6, vertical: 10),
+    child: Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+      child: Row(
+        children: [
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(title, style: const TextStyle(color: Color(purple))),
+                Text(subTitle)
+              ],
+            ),
+          ),
+        ],
+      ),
+    ),
+  );
 }
